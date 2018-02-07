@@ -21,12 +21,17 @@
 #include "MainWindow.h"
 #include "Game.h"
 #include<math.h>
+#include"Object.h"
 
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	menu(std::vector<Object>())
 {
+	menu.Add(Object({ 0,0,30,30 }, Object::Type::Hero, { 0,0 }));
+	menu.Add(Object({ 0,0,30,30 }, Object::Type::Enemy, { 0,0 }));
+	menu.Add(Object({ 0,0,40,40 }, Object::Type::Obstacle, { 0,0 }));
 }
 
 void Game::Go()
@@ -45,7 +50,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	
+	menu.Draw(gfx);
 }
 
 

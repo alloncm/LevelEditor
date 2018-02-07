@@ -23,7 +23,7 @@
 #include <wrl.h>
 #include "ChiliException.h"
 #include "Colors.h"
-
+#include"Rect.h"
 class Graphics
 {
 public:
@@ -56,6 +56,7 @@ public:
 		PutPixel( x,y,{ unsigned char( r ),unsigned char( g ),unsigned char( b ) } );
 	}
 	void PutPixel( int x,int y,Color c );
+	static RectI GetScreenRect();
 	~Graphics();
 private:
 	Microsoft::WRL::ComPtr<IDXGISwapChain>				pSwapChain;
@@ -72,6 +73,6 @@ private:
 	D3D11_MAPPED_SUBRESOURCE							mappedSysBufferTexture;
 	Color*                                              pSysBuffer = nullptr;
 public:
-	static constexpr int ScreenWidth = 800;
+	static constexpr int ScreenWidth = 900;
 	static constexpr int ScreenHeight = 600;
 };

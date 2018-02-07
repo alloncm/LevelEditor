@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include"Menu.h"
 
 class Game
 {
@@ -43,6 +44,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
-	
+	Menu menu;
+	//TODO: add a grid to the user to put the Objects on and than to use the greed to move the info to a file
 	/********************************/
 };
