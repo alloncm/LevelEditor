@@ -45,7 +45,7 @@ Object* Menu::ClickedOn(Vec2 pos)
 {
 	for (int i = 0; i < Elements.size(); i++)
 	{
-		if (Elements[i].GetRect().IsInside({pos.x,pos.y}))
+		if (Elements[i].GetRect().IsInside({int(pos.x),int(pos.y)}))
 		{
 			return &Elements[i];
 		}

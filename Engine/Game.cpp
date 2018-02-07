@@ -23,11 +23,13 @@
 #include<math.h>
 #include"Object.h"
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd ),
-	menu(std::vector<Object>())
+	wnd(wnd),
+	gfx(wnd),
+	menu(std::vector<Object>()),
+	board(800, 600, 40, { 100,0 }),
+	temp(nullptr)
 {
 	menu.Add(Object({ 0,0,30,30 }, Object::Type::Hero, { 0,0 }));
 	menu.Add(Object({ 0,0,30,30 }, Object::Type::Enemy, { 0,0 }));
@@ -46,11 +48,31 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	
+	if (temp != nullptr)
+	{
+		if (wnd.mouse.LeftIsPressed())
+		{
+			Vec2 pos(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
+			if (board.GetRect().IsInside(pos))
+			{
+				board.Add(*temp, pos);
+			}
+		}
+	}
+	else
+	{
+		if (wnd.mouse.LeftIsPressed())
+		{
+			Vec2 pos(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
+			temp = menu.ClickedOn(pos);
+		}
+	}
 }
 
 void Game::ComposeFrame()
 {
 	menu.Draw(gfx);
+	board.Draw(gfx);
 }
 
 

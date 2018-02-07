@@ -24,7 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include"Menu.h"
-
+#include"Board.h"
 class Game
 {
 public:
@@ -45,6 +45,8 @@ private:
 	/********************************/
 	/*  User Variables              */
 	Menu menu;
+	Board board;
+	Object* temp;
 	//TODO: add a grid to the user to put the Objects on and than to use the greed to move the info to a file
 	/********************************/
 };

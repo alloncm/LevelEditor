@@ -18,6 +18,7 @@ private:
 	Color c;
 public:
 	Object(RectI r, Type t, Vec2 pos);
+	Object(const Object& o) = default;
 	void Draw(Graphics& gfx);
 	std::string ToString();
 	Type GetType();

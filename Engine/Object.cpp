@@ -80,5 +80,5 @@ int Object::GetHeight() const
 
 RectI Object::GetRect() const
 {
-	return rect;
+	return RectI(position.x,position.y,GetWidth(),GetHeight());
 }
