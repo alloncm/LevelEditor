@@ -27,10 +27,11 @@ void Board::Delete(Vec2 pos)
 	pos -= position;			//to make the board think he is on a normal screen with now menu
 	pos.x /= sample;
 	pos.y /= sample;
-	if (board[pos.x*width + pos.y] != nullptr)
+	Vec2_<int> n(pos.x, pos.y);
+	if (board[n.y*width + n.x] != nullptr)
 	{
-		delete board[pos.x*width + pos.y];
-		board[pos.x*width + pos.y] = nullptr;
+		delete board[n.y*width + n.x];
+		board[n.y*width + n.x] = nullptr;
 	}
 }
 

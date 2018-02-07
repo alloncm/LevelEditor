@@ -57,6 +57,10 @@ void Game::UpdateModel()
 			{
 				board.Add(*temp, pos);
 			}
+			else
+			{
+				temp = nullptr;
+			}
 		}
 	}
 	else
@@ -65,6 +69,14 @@ void Game::UpdateModel()
 		{
 			Vec2 pos(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
 			temp = menu.ClickedOn(pos);
+		}
+	}
+	if (wnd.mouse.RightIsPressed())
+	{
+		Vec2 pos(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
+		if (board.GetRect().IsInside(pos))
+		{
+			board.Delete(pos);
 		}
 	}
 }
