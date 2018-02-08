@@ -79,6 +79,11 @@ void Game::UpdateModel()
 			board.Delete(pos);
 		}
 	}
+	if (wnd.kbd.KeyIsPressed('S'))
+	{
+		std::string name = "testObs0.txt";
+		board.SaveToFile(name,Object::Type::Obstacle);
+	}
 }
 
 void Game::ComposeFrame()

@@ -51,9 +51,9 @@ void Object::Draw(Graphics & gfx)
 std::string Object::ToString()
 {
 	std::string s = "(";
-	s += position.x;
+	s += std::to_string( int(position.x));
 	s += ',';
-	s += position.y;
+	s += std::to_string(int(position.y));
 	s += ')';
 	return s;
 }

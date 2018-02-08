@@ -51,6 +51,20 @@ void Board::Draw(Graphics & gfx)
 	}
 }
 
+void Board::SaveToFile(std::string & name,Object::Type t)
+{
+	std::ofstream fout(name);
+	fout.exceptions(std::ios::badbit | std::ios::failbit);
+
+	for (int i = 0; i < board.size(); i++)
+	{
+		if (board[i]!=nullptr&&board[i]->GetType() == t)
+		{
+			fout << board[i]->ToString() << '\n';
+		}
+	}
+}
+
 Board::~Board()
 {
 	for (int i = 0; i < board.size(); i++)

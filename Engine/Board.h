@@ -1,6 +1,7 @@
 #pragma once
 #include"Object.h"
 #include<vector>
+#include<fstream>
 class Board
 {
 private:
@@ -17,5 +18,6 @@ public:
 	void Delete(Vec2 pos);
 	Rect<float> GetRect()const;
 	void Draw(Graphics& gfx);
+	void SaveToFile(std::string& name, Object::Type t);
 	~Board();
 };
